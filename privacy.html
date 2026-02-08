@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | LabPure Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clinical-blue': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7', // Primary clinical blue
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        'neutral': {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            800: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    </style>
+</head>
+
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-semibold tracking-tight text-neutral-900">LabPure<span
+                            class="text-clinical-blue-600">Research</span></a>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="products.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Products</a>
+                    <a href="quality.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Quality</a>
+                    <a href="contact.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                </div>
+
+                <!-- Icons & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Icon -->
+                    <a href="cart.html"
+                        class="relative p-2 text-neutral-500 hover:text-clinical-blue-600 transition-colors duration-200 focus:outline-none"
+                        aria-label="Inquiry List">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        <span id="inquiry-count"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-clinical-blue-600 rounded-full">0</span>
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-neutral-400 hover:text-neutral-500 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-clinical-blue-500"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden border-t border-neutral-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="products.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Products</a>
+                <a href="quality.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Quality</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-3xl font-bold text-neutral-900 mb-8">Privacy Policy</h1>
+
+            <div class="prose prose-neutral max-w-none text-neutral-600 space-y-6">
+                <p>
+                    At LabPure Research, we respect your privacy and are committed to protecting it through our
+                    compliance with this policy. This policy describes the types of information we may collect from you
+                    or that you may provide when you visit our website for inquiry purposes.
+                </p>
+
+                <h2 class="text-xl font-semibold text-neutral-900 pt-4">Data Collection and Usage</h2>
+                <p>
+                    <strong>We do NOT sell user data.</strong> Any information collected through our inquiry forms,
+                    including your name, contact information, and research intentions, is kept in <strong>strict
+                        confidence</strong>. This data is used solely for the purpose of processing your inquiry,
+                    verifying your credentials as a qualified researcher, and communicating with you regarding our
+                    products.
+                </p>
+
+                <h2 class="text-xl font-semibold text-neutral-900 pt-4">Data Security</h2>
+                <p>
+                    We implement appropriate data collection, storage, and processing practices and security measures to
+                    protect against unauthorized access, alteration, disclosure, or destruction of your personal
+                    information.
+                </p>
+
+                <h2 class="text-xl font-semibold text-neutral-900 pt-4">Open Source</h2>
+                <p>
+                    For transparency, the source code for this website project is available on GitHub:
+                    <a href="https://github.com/plesaandrei23/LabPureResearch.git"
+                        class="text-clinical-blue-600 hover:underline">https://github.com/plesaandrei23/LabPureResearch.git</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 border-t border-neutral-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xs text-neutral-400">
+                    <strong>LEGAL DISCLAIMER:</strong> All products supplied by LabPure Research are intended solely for
+                    laboratory research purposes and are not to be used for any other purposes, including but not
+                    limited to, in vitro diagnostic purposes, in foods, drugs, medicinal devices or cosmetics for humans
+                    or animals, for any commercial purposes or the production of illicit drugs. The buyer acknowledges
+                    that the products have not been tested by LabPure Research for safety and efficacy in food, drug,
+                    medical device, cosmetic, commercial or any other use.
+                </p>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="about.html" class="text-neutral-400 hover:text-neutral-500">About</a>
+                    <a href="terms.html" class="text-neutral-400 hover:text-neutral-500">Terms</a>
+                    <a href="privacy.html" class="text-neutral-400 hover:text-neutral-500">Privacy</a>
+                </div>
+                <p class="mt-8 text-center text-base text-neutral-400">
+                    &copy; 2026 LabPure Research. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiry-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-neutral-800 bg-opacity-75 transition-opacity backdrop-blur-sm" id="modal-backdrop">
+        </div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                <h3 class="text-base font-semibold leading-6 text-neutral-900" id="modal-title">Inquiry
+                                    List</h3>
+                                <div class="mt-4">
+                                    <ul id="inquiry-items"
+                                        class="divide-y divide-neutral-200 border-t border-b border-neutral-200 max-h-48 overflow-y-auto mb-4">
+                                        <!-- Items will be injected here -->
+                                        <li class="py-2 text-sm text-neutral-500 italic">No items added.</li>
+                                    </ul>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <label for="user-name"
+                                                class="block text-sm font-medium leading-6 text-neutral-900">Name /
+                                                Organization</label>
+                                            <div class="mt-1">
+                                                <input type="text" name="user-name" id="user-name"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-clinical-blue-600 sm:text-sm sm:leading-6 pl-2"
+                                                    placeholder="Dr. Smith, BioCorp Inc.">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="research-intention"
+                                                class="block text-sm font-medium leading-6 text-neutral-900">Research
+                                                Intention</label>
+                                            <div class="mt-1">
+                                                <input type="text" name="research-intention" id="research-intention"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-clinical-blue-600 sm:text-sm sm:leading-6 pl-2"
+                                                    placeholder="e.g., In-vitro binding assays for Project X">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" id="btn-telegram"
+                            class="inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 sm:ml-3 sm:w-auto">Telegram</button>
+                        <button type="button" id="btn-email"
+                            class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:ml-3 sm:w-auto mt-3 sm:mt-0">Email</button>
+                        <button type="button" id="btn-close"
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:mt-0 sm:w-auto">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load data first -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

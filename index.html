@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabPure Research | High-Purity Reference Materials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clinical-blue': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7', // Primary clinical blue
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        'neutral': {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            800: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    </style>
+</head>
+
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-semibold tracking-tight text-neutral-900">LabPure<span
+                            class="text-clinical-blue-600">Research</span></a>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="products.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Products</a>
+                    <a href="quality.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Quality</a>
+                    <a href="contact.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                </div>
+
+                <!-- Icons & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Icon -->
+                    <a href="cart.html"
+                        class="relative p-2 text-clinical-blue-600 transition-colors duration-200 focus:outline-none"
+                        aria-label="Inquiry List">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        <span id="inquiry-count"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-clinical-blue-600 rounded-full">0</span>
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-neutral-400 hover:text-neutral-500 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-clinical-blue-500"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed. -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="hidden md:hidden border-t border-neutral-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="products.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Products</a>
+                <a href="quality.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Quality</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl md:text-6xl">
+                High-Purity Reference Materials <br class="hidden sm:block" />
+                <span class="text-clinical-blue-600">for Laboratory Use Only</span>
+            </h1>
+            <p class="mt-4 max-w-md mx-auto text-base text-neutral-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
+                Strictly for in-vitro research and analytical testing.
+            </p>
+        </div>
+    </header>
+
+    <!-- Disclaimer Banner -->
+    <div class="bg-amber-50 border-y border-amber-200">
+        <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center flex-wrap">
+                <div class="w-0 flex-1 flex items-center justify-center">
+                    <span class="flex p-2 rounded-lg bg-amber-100 ring-1 ring-amber-300">
+                        <svg class="h-6 w-6 text-amber-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                    </span>
+                    <p class="ml-3 font-medium text-amber-900 truncate">
+                        <span class="md:hidden">WARNING: Research use only. 18+</span>
+                        <span class="hidden md:inline">WARNING: Products are for professional research use only. Not for
+                            human consumption, household, or veterinary use. Must be 18+ to view.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-neutral-900 mb-8 border-b pb-4 border-neutral-200">Featured Compounds
+            </h2>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-4 xl:gap-x-8" id="product-grid">
+                <!-- Products will be dynamically inserted here via JS, or hardcoded if preferred. Let's hardcode for simplicity as requested, but structured. -->
+
+                <!-- Product 1 -->
+                <div
+                    class="group relative bg-white border border-neutral-200 rounded-sm p-4 hover:shadow-md transition-shadow duration-200">
+                    <div
+                        class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-sm bg-neutral-100 group-hover:opacity-75 h-48 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-neutral-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Research Compound A
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-neutral-500">Purity: 99.8%</p>
+                            <p class="mt-1 text-xs text-clinical-blue-600 uppercase tracking-wide font-semibold">In
+                                Stock</p>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-4 w-full bg-neutral-100 text-neutral-900 py-2 px-4 border border-neutral-300 rounded-sm text-sm font-medium hover:bg-clinical-blue-600 hover:text-white hover:border-transparent transition-all duration-200 add-to-inquiry z-10 relative"
+                        data-product="Research Compound A">
+                        Add to Inquiry List
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div
+                    class="group relative bg-white border border-neutral-200 rounded-sm p-4 hover:shadow-md transition-shadow duration-200">
+                    <div
+                        class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-sm bg-neutral-100 group-hover:opacity-75 h-48 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-neutral-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Peptide Sequence B
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-neutral-500">Purity: &ge;98.0%</p>
+                            <p class="mt-1 text-xs text-clinical-blue-600 uppercase tracking-wide font-semibold">In
+                                Stock</p>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-4 w-full bg-neutral-100 text-neutral-900 py-2 px-4 border border-neutral-300 rounded-sm text-sm font-medium hover:bg-clinical-blue-600 hover:text-white hover:border-transparent transition-all duration-200 add-to-inquiry z-10 relative"
+                        data-product="Peptide Sequence B">
+                        Add to Inquiry List
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div
+                    class="group relative bg-white border border-neutral-200 rounded-sm p-4 hover:shadow-md transition-shadow duration-200">
+                    <div
+                        class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-sm bg-neutral-100 group-hover:opacity-75 h-48 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-neutral-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Solvent Grade C
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-neutral-500">Purity: 99.9% (HPLC)</p>
+                            <p class="mt-1 text-xs text-clinical-blue-600 uppercase tracking-wide font-semibold">Low
+                                Stock</p>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-4 w-full bg-neutral-100 text-neutral-900 py-2 px-4 border border-neutral-300 rounded-sm text-sm font-medium hover:bg-clinical-blue-600 hover:text-white hover:border-transparent transition-all duration-200 add-to-inquiry z-10 relative"
+                        data-product="Solvent Grade C">
+                        Add to Inquiry List
+                    </button>
+                </div>
+
+                <!-- Product 4 -->
+                <div
+                    class="group relative bg-white border border-neutral-200 rounded-sm p-4 hover:shadow-md transition-shadow duration-200">
+                    <div
+                        class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-sm bg-neutral-100 group-hover:opacity-75 h-48 flex items-center justify-center">
+                        <svg class="h-12 w-12 text-neutral-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <div>
+                            <h3 class="text-sm text-neutral-700">
+                                <a href="#">
+                                    <span aria-hidden="true" class="absolute inset-0"></span>
+                                    Analytical Standard D
+                                </a>
+                            </h3>
+                            <p class="mt-1 text-sm text-neutral-500">Purity: 99.5%</p>
+                            <p class="mt-1 text-xs text-clinical-blue-600 uppercase tracking-wide font-semibold">In
+                                Stock</p>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-4 w-full bg-neutral-100 text-neutral-900 py-2 px-4 border border-neutral-300 rounded-sm text-sm font-medium hover:bg-clinical-blue-600 hover:text-white hover:border-transparent transition-all duration-200 add-to-inquiry z-10 relative"
+                        data-product="Analytical Standard D">
+                        Add to Inquiry List
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- About & Compliance Section -->
+    <section id="about" class="bg-white border-t border-neutral-200 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-clinical-blue-600 font-semibold tracking-wide uppercase">Compliance & Safety
+                </h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-neutral-900 sm:text-4xl">
+                    Strictly for Analytical Use
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-neutral-500 lg:mx-auto">
+                    LabPure Research provides high-purity chemical standards exclusively for laboratory analysis.
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <dt>
+                            <div
+                                class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-clinical-blue-600 text-white">
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-neutral-900">Chemical Standards Only</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-neutral-500">
+                            Our products are chemical reference materials intended solely for use in <strong>Gas
+                                Chromatography-Mass Spectrometry (GC/MS)</strong> and <strong>High-Performance Liquid
+                                Chromatography (HPLC)</strong> analysis. They are <strong
+                                class="text-red-600">NOT</strong> drugs, dietary supplements, or food products. They are
+                            not intended for the diagnosis, treatment, cure, or prevention of any disease.
+                        </dd>
+                    </div>
+
+                    <div class="relative">
+                        <dt>
+                            <div
+                                class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-red-600 text-white">
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                </svg>
+                            </div>
+                            <p class="ml-16 text-lg leading-6 font-medium text-neutral-900">Harm Reduction Policy</p>
+                        </dt>
+                        <dd class="mt-2 ml-16 text-base text-neutral-500">
+                            We maintain a <strong>zero-tolerance policy</strong> regarding the misuse of our products.
+                            Any communication, inquiry, or activity suggesting the use of our products for human or
+                            animal consumption will result in an <strong>immediate ban</strong> and refusal of service.
+                            We prioritize safety and regulatory compliance above all else.
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 border-t border-neutral-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xs text-neutral-400">
+                    <strong>LEGAL DISCLAIMER:</strong> All products supplied by LabPure Research are intended solely for
+                    laboratory research purposes and are not to be used for any other purposes, including but not
+                    limited to, in vitro diagnostic purposes, in foods, drugs, medicinal devices or cosmetics for humans
+                    or animals, for any commercial purposes or the production of illicit drugs. The buyer acknowledges
+                    that the products have not been tested by LabPure Research for safety and efficacy in food, drug,
+                    medical device, cosmetic, commercial or any other use.
+                </p>
+            </div>
+    </footer>
+
+    <!-- Inquiry Modal -->
+    <div id="inquiry-modal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-neutral-800 bg-opacity-75 transition-opacity backdrop-blur-sm" id="modal-backdrop">
+        </div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                    <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                <h3 class="text-base font-semibold leading-6 text-neutral-900" id="modal-title">Inquiry
+                                    List</h3>
+                                <div class="mt-4">
+                                    <ul id="inquiry-items"
+                                        class="divide-y divide-neutral-200 border-t border-b border-neutral-200 max-h-48 overflow-y-auto mb-4">
+                                        <!-- Items will be injected here -->
+                                        <li class="py-2 text-sm text-neutral-500 italic">No items added.</li>
+                                    </ul>
+                                    <div class="space-y-3">
+                                        <div>
+                                            <label for="user-name"
+                                                class="block text-sm font-medium leading-6 text-neutral-900">Name /
+                                                Organization</label>
+                                            <div class="mt-1">
+                                                <input type="text" name="user-name" id="user-name"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-clinical-blue-600 sm:text-sm sm:leading-6 pl-2"
+                                                    placeholder="Dr. Smith, BioCorp Inc.">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="research-intention"
+                                                class="block text-sm font-medium leading-6 text-neutral-900">Research
+                                                Intention</label>
+                                            <div class="mt-1">
+                                                <input type="text" name="research-intention" id="research-intention"
+                                                    class="block w-full rounded-md border-0 py-1.5 text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 placeholder:text-neutral-400 focus:ring-2 focus:ring-inset focus:ring-clinical-blue-600 sm:text-sm sm:leading-6 pl-2"
+                                                    placeholder="e.g., In-vitro binding assays for Project X">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" id="btn-telegram"
+                            class="inline-flex w-full justify-center rounded-md bg-sky-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-400 sm:ml-3 sm:w-auto">
+                            Telegram
+                        </button>
+                        <button type="button" id="btn-email"
+                            class="inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:ml-3 sm:w-auto mt-3 sm:mt-0">
+                            Email
+                        </button>
+                        <button type="button" id="btn-close"
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-neutral-900 shadow-sm ring-1 ring-inset ring-neutral-300 hover:bg-neutral-50 sm:mt-0 sm:w-auto">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load data first -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

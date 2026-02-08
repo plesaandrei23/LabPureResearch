@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Cart | LabPure Research</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'clinical-blue': {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        'neutral': {
+                            50: '#fafafa',
+                            100: '#f5f5f5',
+                            200: '#e5e5e5',
+                            800: '#262626',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+    </style>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+            (function () {
+                // PASTE YOUR PUBLIC KEY HERE
+                // Example: emailjs.init("user_xxxxxxxxxxxx");
+                emailjs.init("YOUR_PUBLIC_KEY");
+            })();
+    </script>
+</head>
+
+<body class="bg-neutral-50 text-neutral-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-neutral-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-xl font-semibold tracking-tight text-neutral-900">LabPure<span
+                            class="text-clinical-blue-600">Research</span></a>
+                </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="products.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Products</a>
+                    <a href="quality.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Quality</a>
+                    <a href="contact.html"
+                        class="text-neutral-500 hover:text-clinical-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200">Contact</a>
+                </div>
+
+                <!-- Icons & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Cart Icon -->
+                    <a href="cart.html"
+                        class="relative p-2 text-clinical-blue-600 transition-colors duration-200 focus:outline-none"
+                        aria-label="Inquiry List">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                        </svg>
+                        <span id="inquiry-count"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-clinical-blue-600 rounded-full">0</span>
+                    </a>
+
+                    <!-- Mobile Hamburger -->
+                    <button id="mobile-menu-btn" type="button"
+                        class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-neutral-400 hover:text-neutral-500 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-clinical-blue-500"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="hidden md:hidden border-t border-neutral-200" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-white">
+                <a href="products.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Products</a>
+                <a href="quality.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Quality</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 w-full">
+        <h1 class="text-3xl font-extrabold tracking-tight text-neutral-900 mb-8">Your Research Inquiry</h1>
+
+        <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-12">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg leading-6 font-medium text-neutral-900">Selected Products</h3>
+                <p class="mt-1 max-w-2xl text-sm text-neutral-500">Review items before submitting your inquiry.</p>
+            </div>
+            <div class="border-t border-neutral-200">
+                <table class="min-w-full divide-y divide-neutral-200">
+                    <thead class="bg-neutral-50">
+                        <tr>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                                Product</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                                Purity</th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
+                                Quantity</th>
+                            <th scope="col" class="px-6 py-3 relative">
+                                <span class="sr-only">Remove</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-neutral-200" id="cart-table-body">
+                        <!-- Rows injected via JS -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-neutral-500" colspan="4">Loading cart...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="empty-cart-msg" class="hidden px-6 py-12 text-center text-neutral-500 italic">
+                Your inquiry list is empty. <a href="index.html" class="text-clinical-blue-600 hover:underline">Browse
+                    products to add items.</a>
+            </div>
+        </div>
+
+        <div class="bg-white shadow sm:rounded-lg overflow-hidden">
+            <div class="px-4 py-5 sm:px-6 bg-neutral-50 border-b border-neutral-200">
+                <h3 class="text-lg leading-6 font-medium text-neutral-900">Inquiry Details</h3>
+                <p class="mt-1 max-w-2xl text-sm text-neutral-500">Please provide your details for a formal quotation.
+                </p>
+            </div>
+            <div class="p-6 space-y-6">
+                <div class="grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                    <!-- Hidden Field -->
+                    <input type="hidden" id="to_name" value="Owner">
+
+                    <div class="sm:col-span-3">
+                        <label for="from_name" class="block text-sm font-medium text-neutral-700">Full Name</label>
+                        <div class="mt-1">
+                            <input type="text" id="from_name"
+                                class="shadow-sm focus:ring-clinical-blue-500 focus:border-clinical-blue-500 block w-full sm:text-sm border-neutral-300 rounded-md p-2 border"
+                                placeholder="e.g. Dr. Jane Doe">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-3">
+                        <label for="reply_to" class="block text-sm font-medium text-neutral-700">Email Address</label>
+                        <div class="mt-1">
+                            <input type="email" id="reply_to"
+                                class="shadow-sm focus:ring-clinical-blue-500 focus:border-clinical-blue-500 block w-full sm:text-sm border-neutral-300 rounded-md p-2 border"
+                                placeholder="jane.doe@univ.edu">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                        <label for="telegram_handle" class="block text-sm font-medium text-neutral-700">Telegram Handle
+                            (Optional)</label>
+                        <div class="mt-1">
+                            <input type="text" id="telegram_handle"
+                                class="shadow-sm focus:ring-clinical-blue-500 focus:border-clinical-blue-500 block w-full sm:text-sm border-neutral-300 rounded-md p-2 border"
+                                placeholder="@janedoe">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                        <label for="address" class="block text-sm font-medium text-neutral-700">Delivery Address</label>
+                        <div class="mt-1">
+                            <input type="text" id="address"
+                                class="shadow-sm focus:ring-clinical-blue-500 focus:border-clinical-blue-500 block w-full sm:text-sm border-neutral-300 rounded-md p-2 border"
+                                placeholder="Street Address, City, Zip Code, Country">
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-6">
+                        <label for="message" class="block text-sm font-medium text-neutral-700">Additional Notes</label>
+                        <div class="mt-1">
+                            <textarea id="message" rows="3"
+                                class="shadow-sm focus:ring-clinical-blue-500 focus:border-clinical-blue-500 block w-full sm:text-sm border-neutral-300 rounded-md p-2 border"
+                                placeholder="Any specific requirements..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 py-3 bg-neutral-50 text-right sm:px-6">
+                <button type="button" id="btn-send-inquiry"
+                    class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-clinical-blue-600 hover:bg-clinical-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-clinical-blue-500">
+                    Send Inquiry
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-neutral-100 border-t border-neutral-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xs text-neutral-400">
+                    <strong>LEGAL DISCLAIMER:</strong> All products supplied by LabPure Research are intended solely for
+                    laboratory research purposes...
+                </p>
+                <div class="mt-8 flex justify-center space-x-6">
+                    <a href="about.html" class="text-neutral-400 hover:text-neutral-500">About</a>
+                    <a href="terms.html" class="text-neutral-400 hover:text-neutral-500">Terms</a>
+                    <a href="privacy.html" class="text-neutral-400 hover:text-neutral-500">Privacy</a>
+                </div>
+                <p class="mt-8 text-center text-base text-neutral-400">
+                    &copy; 2026 LabPure Research. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load data first -->
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
