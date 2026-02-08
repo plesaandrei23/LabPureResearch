@@ -230,6 +230,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 to_name: 'Owner',
                 from_name: fromName,
                 reply_to: replyTo,
+                email: replyTo, // Added generic key for compatibility
+                user_email: replyTo, // Added generic key for compatibility
                 telegram_handle: telegramHandle,
                 address: address,
                 message: message,
