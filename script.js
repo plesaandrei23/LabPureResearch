@@ -36,8 +36,12 @@ function updateInquiryCount() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize EmailJS
-    emailjs.init("O_V0ppcsls3itLO0X");
+    // Initialize EmailJS safely
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("O_V0ppcsls3itLO0X");
+    } else {
+        console.warn("EmailJS not loaded. Checkout will not work.");
+    }
 
     // Elements
     const productGrid = document.getElementById('product-grid');
