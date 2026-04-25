@@ -23,7 +23,7 @@ export default function ContactPage() {
           <div>
             <p className="text-sm font-semibold text-neutral-900">Email</p>
             <a href="mailto:contact@peptideresearch.ro" className="text-sm text-blue-600 hover:underline">contact@peptideresearch.ro</a>
-            <p className="text-xs text-neutral-400 mt-1">Răspuns în 24-48h în zilele lucrătoare</p>
+            <p className="text-xs text-neutral-400 mt-1">Răspuns în maximum 24h</p>
           </div>
         </div>
 
@@ -34,15 +34,11 @@ export default function ContactPage() {
             </svg>
           </div>
           <div>
-            <p className="text-sm font-semibold text-neutral-900">Telegram</p>
-            <a href="https://t.me/PeptideResearchRO" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">@PeptideResearchRO</a>
+            <p className="text-sm font-semibold text-neutral-900">Whatsapp</p>
+            <a href="https://t.me/PeptideResearchRO" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:underline">+40755-266-278</a>
             <p className="text-xs text-neutral-400 mt-1">Cel mai rapid canal de comunicare</p>
           </div>
         </div>
-      </div>
-
-      <div className="mt-10 bg-neutral-50 border border-neutral-200 rounded-lg p-5 text-sm text-neutral-500">
-        <strong className="text-neutral-700">Program:</strong> Luni – Vineri, 09:00 – 18:00
       </div>
     </div>
   )

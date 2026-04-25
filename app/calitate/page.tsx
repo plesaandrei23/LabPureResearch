@@ -14,10 +14,7 @@ export default function CalitatePage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white border border-neutral-200 rounded-lg p-6">
-          <h2 className="text-lg font-semibold text-neutral-900 mb-3">Analiză HPLC</h2>
-          <p className="text-sm text-neutral-500">Fiecare lot de peptide este analizat prin cromatografie lichidă de înaltă performanță (HPLC). Puritatea minimă garantată este ≥98%, cu certificate disponibile la cerere.</p>
-        </div>
+
         <div className="bg-white border border-neutral-200 rounded-lg p-6">
           <h2 className="text-lg font-semibold text-neutral-900 mb-3">Certificat de Analiză (CoA)</h2>
           <p className="text-sm text-neutral-500">La fiecare comandă poți solicita certificatul de analiză aferent lotului livrat. Documentul include: puritate HPLC, masa moleculară verificată, număr lot.</p>
