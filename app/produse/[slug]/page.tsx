@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { createClient } from '@/lib/supabase'
+import { createServerSupabase } from '@/lib/supabase-server'
 import AddToCartButton from './AddToCartButton'
 
 type Props = { params: Promise<{ slug: string }> }
 
 async function getProduct(slug: string) {
-  const supabase = createClient()
+  const supabase = await createServerSupabase()
   const { data } = await supabase
     .from('products')
     .select('*')

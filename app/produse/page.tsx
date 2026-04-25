@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { createClient } from '@/lib/supabase'
+import { createServerSupabase } from '@/lib/supabase-server'
 import ProductCard from '@/components/ProductCard'
 
 export const metadata: Metadata = {
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 async function getProducts() {
-  const supabase = createClient()
+  const supabase = await createServerSupabase()
   const { data } = await supabase
     .from('products')
     .select('*')
@@ -24,7 +24,7 @@ export default async function ProduseePage() {
     <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-12">
         <h1 className="text-3xl font-extrabold text-neutral-900 sm:text-4xl">Catalog Peptide</h1>
-        <p className="mt-3 text-lg text-neutral-500">Peptide sintetice de puritate analitică, pentru cercetare în laborator.</p>
+        <p className="mt-3 text-lg text-neutral-500">Kit-uri complete cu apă bacteriostatică și seringă inclusă.</p>
       </div>
 
       {products.length > 0 ? (

@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import { createClient } from '@/lib/supabase'
+import { createServerSupabase } from '@/lib/supabase-server'
 import ProductCard from '@/components/ProductCard'
 
 async function getFeaturedProducts() {
-  const supabase = createClient()
+  const supabase = await createServerSupabase()
   const { data } = await supabase
     .from('products')
     .select('*')
