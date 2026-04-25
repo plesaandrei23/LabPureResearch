@@ -1,0 +1,94 @@
+'use client'
+
+import { useState, Suspense } from 'react'
+import Link from 'next/link'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { createClient } from '@/lib/supabase'
+
+function LoginForm() {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const redirect = searchParams.get('redirect') ?? '/contul-meu'
+  const supabase = createClient()
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setError('')
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) {
+      setError('Email sau parolă incorectă.')
+    } else {
+      router.push(redirect)
+      router.refresh()
+    }
+    setLoading(false)
+  }
+
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center py-12 px-4">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <Link href="/" className="text-2xl font-semibold text-neutral-900">
+            Peptid<span className="text-blue-600">Lab</span>
+          </Link>
+          <h1 className="mt-4 text-xl font-bold text-neutral-900">Autentificare</h1>
+          <p className="mt-1 text-sm text-neutral-500">
+            Nu ai cont?{' '}
+            <Link href="/cont/inregistrare" className="text-blue-600 hover:underline font-medium">
+              Înregistrează-te
+            </Link>
+          </p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-white border border-neutral-200 rounded-lg p-8 shadow-sm space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="ion@exemplu.ro"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-neutral-700 mb-1">Parolă</label>
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="••••••••"
+            />
+          </div>
+
+          {error && <p className="text-sm text-red-600 bg-red-50 rounded-md p-2">{error}</p>}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-2.5 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+          >
+            {loading ? 'Se procesează...' : 'Autentifică-te'}
+          </button>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default function AutentificiarePage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
+  )
+}
