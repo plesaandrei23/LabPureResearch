@@ -20,7 +20,7 @@ function LoginForm() {
     e.preventDefault()
     setError('')
     setLoading(true)
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) {
       if (error.message.toLowerCase().includes('email not confirmed')) {
         setError('Emailul nu a fost confirmat. Verifică inbox-ul și apasă linkul de confirmare.')
@@ -28,7 +28,10 @@ function LoginForm() {
         setError('Email sau parolă incorectă.')
       }
     } else {
-      router.push(redirect)
+      const dest = data.user?.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL
+        ? '/admin/comenzi'
+        : redirect
+      router.push(dest)
       router.refresh()
     }
     setLoading(false)
