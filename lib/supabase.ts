@@ -93,6 +93,7 @@ export type Database = {
           status: string
           total_amount: number
           shipping_name: string | null
+          shipping_email: string | null
           shipping_address: string | null
           shipping_city: string | null
           shipping_county: string | null
@@ -108,6 +109,7 @@ export type Database = {
           status?: string
           total_amount?: number
           shipping_name?: string | null
+          shipping_email?: string | null
           shipping_address?: string | null
           shipping_city?: string | null
           shipping_county?: string | null
@@ -121,6 +123,7 @@ export type Database = {
           status?: string
           total_amount?: number
           shipping_name?: string | null
+          shipping_email?: string | null
           shipping_address?: string | null
           shipping_city?: string | null
           shipping_county?: string | null
