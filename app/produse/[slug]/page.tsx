@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
 import AddToCartButton from './AddToCartButton'
@@ -44,13 +45,22 @@ export default async function ProductPage({ params }: Props) {
 
       <div className="lg:grid lg:grid-cols-2 lg:gap-12">
         {/* Image */}
-        <div className="bg-neutral-50 rounded-xl h-72 lg:h-auto flex items-center justify-center mb-8 lg:mb-0">
+        <div className="relative bg-neutral-50 rounded-xl overflow-hidden" style={{ minHeight: '360px' }}>
           {product.image_url ? (
-            <img src={product.image_url} alt={product.name} className="max-h-64 object-contain p-8" />
+            <Image
+              src={product.image_url}
+              alt={product.name}
+              fill
+              className="object-contain p-8"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
+            />
           ) : (
-            <svg className="h-24 w-24 text-neutral-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg className="h-24 w-24 text-neutral-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={0.8} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+              </svg>
+            </div>
           )}
         </div>
 
@@ -70,12 +80,22 @@ export default async function ProductPage({ params }: Props) {
           )}
 
           {product.stock > 0 ? (
-            <p className="mt-1 text-sm font-semibold text-green-600">✓ În stoc ({product.stock} disponibile)</p>
+            <p className="mt-1 text-sm font-semibold text-green-600">✓ În stoc</p>
           ) : (
             <p className="mt-1 text-sm font-semibold text-red-500">✗ Stoc epuizat</p>
           )}
 
-          <div className="mt-6 text-base text-neutral-700 leading-relaxed">
+          {/* Kit Complet badge */}
+          <div className="mt-5 bg-green-50 border border-green-200 rounded-lg p-4">
+            <p className="text-sm font-semibold text-green-800 mb-2">📦 Kit Complet – ce include:</p>
+            <ul className="text-sm text-green-700 space-y-1">
+              <li>✓ Peptidă liofilizată (doză indicată)</li>
+              <li>✓ Apă bacteriostatică 10ml</li>
+              <li>✓ Seringă de reconstituire</li>
+            </ul>
+          </div>
+
+          <div className="mt-5 text-base text-neutral-700 leading-relaxed">
             {product.description}
           </div>
 
