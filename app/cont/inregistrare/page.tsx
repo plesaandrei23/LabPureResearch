@@ -2,14 +2,13 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
 
 export default function InregistrarePage() {
-  const router = useRouter()
   const supabase = createClient()
 
   const [form, setForm] = useState({ full_name: '', email: '', password: '', confirm: '' })
+  const [gdpr, setGdpr] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
@@ -22,6 +21,10 @@ export default function InregistrarePage() {
     e.preventDefault()
     setError('')
 
+    if (!gdpr) {
+      setError('Trebuie să accepți termenii și politica GDPR pentru a continua.')
+      return
+    }
     if (form.password !== form.confirm) {
       setError('Parolele nu coincid.')
       return
@@ -35,7 +38,10 @@ export default function InregistrarePage() {
     const { error } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
-      options: { data: { full_name: form.full_name } },
+      options: {
+        data: { full_name: form.full_name },
+        emailRedirectTo: `${window.location.origin}/auth/confirm`,
+      },
     })
     setLoading(false)
 
@@ -70,7 +76,7 @@ export default function InregistrarePage() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-semibold text-neutral-900">
-            Peptid<span className="text-blue-600">Lab</span>
+            Peptide<span className="text-blue-600">Research</span><span className="text-neutral-500">.ro</span>
           </Link>
           <h1 className="mt-4 text-xl font-bold text-neutral-900">Creează cont</h1>
           <p className="mt-1 text-sm text-neutral-500">
@@ -107,11 +113,21 @@ export default function InregistrarePage() {
               placeholder="••••••••" />
           </div>
 
-          {error && <p className="text-sm text-red-600 bg-red-50 rounded-md p-2">{error}</p>}
+          <label className="flex items-start gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={gdpr}
+              onChange={e => setGdpr(e.target.checked)}
+              className="mt-0.5 h-4 w-4 rounded border-neutral-300 text-blue-600 focus:ring-blue-500"
+            />
+            <span className="text-xs text-neutral-600">
+              Am citit și accept{' '}
+              <Link href="/politica-confidentialitate" className="text-blue-600 hover:underline">Politica de Confidențialitate (GDPR)</Link>
+              {' '}și confirm că am minim 18 ani și voi utiliza produsele exclusiv în scopuri de cercetare.
+            </span>
+          </label>
 
-          <p className="text-xs text-neutral-400">
-            Prin înregistrare confirmi că ai minim 18 ani și că vei utiliza produsele exclusiv în scopuri de cercetare.
-          </p>
+          {error && <p className="text-sm text-red-600 bg-red-50 rounded-md p-2">{error}</p>}
 
           <button type="submit" disabled={loading}
             className="w-full py-2.5 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50">

@@ -14,7 +14,7 @@ function LoginForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [error, setError] = useState(searchParams.get('error') === 'link-invalid' ? 'Linkul de confirmare este invalid sau a expirat. Încearcă din nou.' : '')
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -22,7 +22,11 @@ function LoginForm() {
     setLoading(true)
     const { error } = await supabase.auth.signInWithPassword({ email, password })
     if (error) {
-      setError('Email sau parolă incorectă.')
+      if (error.message.toLowerCase().includes('email not confirmed')) {
+        setError('Emailul nu a fost confirmat. Verifică inbox-ul și apasă linkul de confirmare.')
+      } else {
+        setError('Email sau parolă incorectă.')
+      }
     } else {
       router.push(redirect)
       router.refresh()
@@ -35,7 +39,7 @@ function LoginForm() {
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
           <Link href="/" className="text-2xl font-semibold text-neutral-900">
-            Peptid<span className="text-blue-600">Lab</span>
+            Peptide<span className="text-blue-600">Research</span><span className="text-neutral-500">.ro</span>
           </Link>
           <h1 className="mt-4 text-xl font-bold text-neutral-900">Autentificare</h1>
           <p className="mt-1 text-sm text-neutral-500">
