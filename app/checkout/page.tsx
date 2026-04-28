@@ -113,9 +113,12 @@ export default function CheckoutPage() {
 
     setLoading(true)
     try {
-      const { data: order, error: orderErr } = await supabase
+      const orderId = crypto.randomUUID()
+
+      const { error: orderErr } = await supabase
         .from('orders')
         .insert({
+          id: orderId,
           user_id: userId ?? undefined,
           status: 'in_asteptare',
           total_amount: total,
@@ -128,26 +131,25 @@ export default function CheckoutPage() {
           shipping_postal: form.postal_code,
           notes: form.notes || null,
         })
-        .select()
-        .single()
 
-      if (orderErr || !order) throw orderErr ?? new Error('Eroare la crearea comenzii')
+      if (orderErr) throw orderErr
 
-      await supabase.from('order_items').insert(
+      const { error: itemsErr } = await supabase.from('order_items').insert(
         items.map(item => ({
-          order_id: order.id,
+          order_id: orderId,
           product_id: item.id,
           product_name: item.name,
           quantity: item.quantity,
           unit_price: item.price,
         }))
       )
+      if (itemsErr) throw itemsErr
 
       await fetch('/api/notify-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          orderId: order.id,
+          orderId: orderId,
           items: items.map(i => ({ name: i.name, quantity: i.quantity, price: i.price })),
           total,
           shipping: {
@@ -163,7 +165,7 @@ export default function CheckoutPage() {
       })
 
       clearCart()
-      router.push(`/checkout/confirmare?id=${order.id}`)
+      router.push(`/checkout/confirmare?id=${orderId}`)
     } catch (err: unknown) {
       setSubmitError(err instanceof Error ? err.message : 'A apărut o eroare. Încearcă din nou.')
     } finally {
