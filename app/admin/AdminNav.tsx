@@ -35,16 +35,10 @@ export default function AdminNav() {
     <header className="bg-neutral-900 border-b border-neutral-700 sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
 
-        {/* Left: back to store */}
-        <Link
-          href="/"
-          className="flex items-center gap-1.5 text-sm text-neutral-400 hover:text-white transition-colors"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Magazin
-        </Link>
+        {/* Left: brand */}
+        <span className="text-sm font-semibold text-neutral-300 tracking-wide uppercase">
+          Admin Panel
+        </span>
 
         {/* Center: section tabs */}
         <nav className="flex items-center gap-1">
