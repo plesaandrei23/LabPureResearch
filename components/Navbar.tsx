@@ -9,8 +9,6 @@ import { createClient } from '@/lib/supabase'
 export default function Navbar() {
   const pathname = usePathname()
   const { count } = useCart()
-
-  if (pathname.startsWith('/admin')) return null
   const [menuOpen, setMenuOpen] = useState(false)
   const [user, setUser] = useState<{ email?: string } | null>(null)
   const supabase = createClient()
@@ -22,6 +20,8 @@ export default function Navbar() {
     })
     return () => subscription.unsubscribe()
   }, [])
+
+  if (pathname.startsWith('/admin')) return null
 
   async function handleSignOut() {
     await supabase.auth.signOut()
