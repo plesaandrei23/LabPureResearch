@@ -110,14 +110,13 @@ export default function CheckoutPage() {
     setErrors(errs)
     if (Object.keys(errs).length > 0) return
     if (items.length === 0) { setSubmitError('Coșul tău este gol.'); return }
-    if (!userId) { router.push('/cont/autentificare?redirect=/checkout'); return }
 
     setLoading(true)
     try {
       const { data: order, error: orderErr } = await supabase
         .from('orders')
         .insert({
-          user_id: userId,
+          user_id: userId ?? undefined,
           status: 'in_asteptare',
           total_amount: total,
           shipping_name: form.full_name,

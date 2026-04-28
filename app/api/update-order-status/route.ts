@@ -90,7 +90,8 @@ export async function POST(req: NextRequest) {
     })
 
     if (emailError) {
-      console.error('Status email error:', emailError)
+      console.error('Status email error:', JSON.stringify(emailError))
+      // Non-fatal: status already updated, log visible in Vercel Functions logs
     }
   }
 
