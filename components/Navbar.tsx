@@ -2,11 +2,15 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { useCart } from './CartProvider'
 import { createClient } from '@/lib/supabase'
 
 export default function Navbar() {
+  const pathname = usePathname()
   const { count } = useCart()
+
+  if (pathname.startsWith('/admin')) return null
   const [menuOpen, setMenuOpen] = useState(false)
   const [user, setUser] = useState<{ email?: string } | null>(null)
   const supabase = createClient()
