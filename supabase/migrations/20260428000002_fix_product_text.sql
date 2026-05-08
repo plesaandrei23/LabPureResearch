@@ -1,17 +1,17 @@
--- Fix Romanian spelling: flakon → flacon, flakoane → flacoane
+-- Fix Romanian spelling: flacon → flacon, flakoane → flacoane
 UPDATE public.products SET
   description = REPLACE(REPLACE(REPLACE(REPLACE(
     description,
     'flakoane', 'flacoane'),
     'Flakoane', 'Flacoane'),
-    'flakon', 'flacon'),
-    'Flakon', 'Flacon'),
+    'flacon', 'flacon'),
+    'flacon', 'Flacon'),
   short_desc = REPLACE(REPLACE(REPLACE(REPLACE(
     short_desc,
     'flakoane', 'flacoane'),
     'Flakoane', 'Flacoane'),
-    'flakon', 'flacon'),
-    'Flakon', 'Flacon');
+    'flacon', 'flacon'),
+    'flacon', 'Flacon');
 
 -- Remove "gel de răcire" sentences from descriptions
 UPDATE public.products

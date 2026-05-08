@@ -3,7 +3,7 @@ import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
-const FROM = 'PeptideResearch.ro <onboarding@resend.dev>'
+const FROM = process.env.EMAIL_FROM ?? 'PeptideResearch.ro <onboarding@resend.dev>'
 
 type OrderItem = { name: string; quantity: number; price: number }
 

@@ -90,7 +90,7 @@ export default async function HomePage() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-neutral-900 mb-2">Ambalaj steril, livrare rapidă</h3>
-              <p className="text-sm text-neutral-500">Peptidele sunt livrate liofilizate, în flakoane sigilate, cu gheață uscată pentru stabilitate.</p>
+              <p className="text-sm text-neutral-500">Peptidele sunt livrate liofilizate, în flacoane sigilate, cu gheață uscată pentru stabilitate.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mb-4">

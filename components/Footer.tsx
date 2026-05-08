@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <p className="text-lg font-semibold text-neutral-900">Peptide<span className="text-blue-600">Research</span><span className="text-neutral-400">.ro</span></p>
-            <p className="mt-2 text-sm text-neutral-500">Materiale de referință de înaltă puritate, exclusiv pentru cercetare în laborator.</p>
+            <p className="mt-2 text-sm text-neutral-500">Produse de înaltă puritate, exclusiv pentru cercetare în laborator.</p>
           </div>
           <div>
             <p className="text-sm font-semibold text-neutral-700 uppercase tracking-wide mb-3">Navigare</p>

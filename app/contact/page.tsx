@@ -22,7 +22,7 @@ export default function ContactPage() {
           </div>
           <div>
             <p className="text-sm font-semibold text-neutral-900">Email</p>
-            <a href="mailto:contact@peptideresearch.ro" className="text-sm text-blue-600 hover:underline">contact@peptideresearch.ro</a>
+            <a href="mailto:infopeptidereseach@gmail.com" className="text-sm text-blue-600 hover:underline">infopeptidereseach@gmail.com</a>
             <p className="text-xs text-neutral-400 mt-1">Răspuns în maximum 24h</p>
           </div>
         </div>

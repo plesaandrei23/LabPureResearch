@@ -90,7 +90,7 @@ export default async function ProductPage({ params }: Props) {
             <p className="text-sm font-semibold text-green-800 mb-2">📦 Kit Complet – ce include:</p>
             <ul className="text-sm text-green-700 space-y-1">
               <li>✓ Peptidă liofilizată (doză indicată)</li>
-              <li>✓ Apă bacteriostatică 10ml</li>
+              <li>✓ Apă bacteriostatică </li>
               <li>✓ Seringă de reconstituire</li>
             </ul>
           </div>
