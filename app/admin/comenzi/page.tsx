@@ -26,18 +26,20 @@ export default async function AdminComenziPage() {
     redirect('/')
   }
 
-  const { data: orders } = await supabase
+  const { data } = await supabase
     .from('orders')
     .select('*, order_items(*)')
     .order('created_at', { ascending: false })
     .limit(200)
 
+  const orders = (data as any[]) || []
+
   const grouped = {
-    in_asteptare: orders?.filter((o: any) => o.status === 'in_asteptare') ?? [],
-    confirmata: orders?.filter((o: any) => o.status === 'confirmata') ?? [],
-    expediata: orders?.filter((o: any) => o.status === 'expediata') ?? [],
-    livrata: orders?.filter((o: any) => o.status === 'livrata') ?? [],
-    anulata: orders?.filter((o: any) => o.status === 'anulata') ?? [],
+    in_asteptare: orders.filter(o => o.status === 'in_asteptare'),
+    confirmata: orders.filter(o => o.status === 'confirmata'),
+    expediata: orders.filter(o => o.status === 'expediata'),
+    livrata: orders.filter(o => o.status === 'livrata'),
+    anulata: orders.filter(o => o.status === 'anulata'),
   }
 
   const pending = grouped.in_asteptare.length
