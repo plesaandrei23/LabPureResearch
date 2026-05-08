@@ -4,7 +4,6 @@ import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 import type { Database } from '@/lib/supabase'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
 const FROM = process.env.EMAIL_FROM ?? 'PeptideResearch.ro <onboarding@resend.dev>'
 
@@ -31,6 +30,7 @@ interface UpdateBody {
 }
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY || 're_missing')
   const body: UpdateBody = await req.json()
   const { orderId, newStatus, customerEmail, customerName, shortId } = body
 

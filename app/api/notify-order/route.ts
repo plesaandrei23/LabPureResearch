@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
 const FROM = process.env.EMAIL_FROM ?? 'PeptideResearch.ro <onboarding@resend.dev>'
 
@@ -33,6 +32,7 @@ function itemsHtml(items: OrderItem[]) {
 }
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY || 're_missing')
   const body: NotifyBody = await req.json()
   const { orderId, items, total, shipping } = body
   const shortId = orderId.slice(0, 8).toUpperCase()
