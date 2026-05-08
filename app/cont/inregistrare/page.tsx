@@ -61,8 +61,8 @@ export default function InregistrarePage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-xl font-bold text-neutral-900 mb-2">Cont creat cu succes!</h2>
-          <p className="text-sm text-neutral-500 mb-6">Verifică-ți emailul pentru a confirma adresa, apoi autentifică-te.</p>
+          <h2 className="text-xl font-bold text-neutral-900 mb-2">Verifică-ți adresa de email</h2>
+          <p className="text-sm text-neutral-500 mb-6">Pentru a finaliza crearea contului, dă click pe linkul de activare trimis pe email.</p>
           <Link href="/cont/autentificare" className="text-blue-600 hover:underline text-sm font-medium">
             Mergi la autentificare →
           </Link>

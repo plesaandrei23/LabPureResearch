@@ -103,8 +103,9 @@ export async function POST(req: NextRequest) {
   ])
 
   if (adminResult.error || customerResult.error) {
-    console.error('Resend error:', adminResult.error ?? customerResult.error)
-    return NextResponse.json({ error: 'Email sending failed' }, { status: 500 })
+    console.error('Resend Error Admin:', JSON.stringify(adminResult.error))
+    console.error('Resend Error Customer:', JSON.stringify(customerResult.error))
+    return NextResponse.json({ ok: true, warning: 'Email sending failed' })
   }
 
   return NextResponse.json({ ok: true })

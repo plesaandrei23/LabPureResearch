@@ -33,11 +33,11 @@ export default async function AdminComenziPage() {
     .limit(200)
 
   const grouped = {
-    in_asteptare: orders?.filter(o => o.status === 'in_asteptare') ?? [],
-    confirmata: orders?.filter(o => o.status === 'confirmata') ?? [],
-    expediata: orders?.filter(o => o.status === 'expediata') ?? [],
-    livrata: orders?.filter(o => o.status === 'livrata') ?? [],
-    anulata: orders?.filter(o => o.status === 'anulata') ?? [],
+    in_asteptare: orders?.filter((o: any) => o.status === 'in_asteptare') ?? [],
+    confirmata: orders?.filter((o: any) => o.status === 'confirmata') ?? [],
+    expediata: orders?.filter((o: any) => o.status === 'expediata') ?? [],
+    livrata: orders?.filter((o: any) => o.status === 'livrata') ?? [],
+    anulata: orders?.filter((o: any) => o.status === 'anulata') ?? [],
   }
 
   const pending = grouped.in_asteptare.length

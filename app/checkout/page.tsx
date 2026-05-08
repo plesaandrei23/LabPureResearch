@@ -193,8 +193,8 @@ export default function CheckoutPage() {
       <h1 className="text-2xl font-bold text-neutral-900 mb-8">Finalizare comandă</h1>
 
       {!userId && (
-        <div className="mb-6 bg-blue-50 border border-blue-200 rounded-md p-4 text-sm text-blue-800">
-          <Link href="/cont/autentificare?redirect=/checkout" className="font-semibold underline">Autentifică-te</Link> pentru a salva comanda în contul tău.
+        <div className="mb-6 bg-blue-50 border border-blue-200 rounded-md p-4 text-sm text-blue-800 flex justify-between items-center">
+          <span>Poți finaliza comanda fără cont, sau te poți <Link href="/cont/autentificare?redirect=/checkout" className="font-semibold underline">autentifica</Link> pentru a o salva în contul tău.</span>
         </div>
       )}
 
