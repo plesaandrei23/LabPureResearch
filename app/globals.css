@@ -103,14 +103,17 @@
   }
 }
 
-/* Tailwind v4 theme bridge */
-@theme inline {
+/* Tailwind v4 theme bridge.
+   NOTE: do NOT use `@theme inline` here. `inline` tells Tailwind to bake the
+   value at compile time, which silently drops tokens whose value is `var()`
+   (since the var can't be resolved at build time). Plain `@theme` keeps the
+   var reference, so utility classes resolve at runtime and dark mode works. */
+@theme {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-foreground: var(--foreground);
   --color-muted-fg: var(--muted-fg);
-  --color-border-token: var(--border);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-accent-2: var(--accent-2);

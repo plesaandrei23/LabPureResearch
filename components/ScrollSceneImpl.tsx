@@ -64,13 +64,13 @@ function useParticles(count: number): ParticleData[] {
       const a = rand() * Math.PI * 2
       const origin = new THREE.Vector3(Math.cos(a) * r, y, Math.sin(a) * r)
 
-      // scatter target: outward from the Y-axis, mostly horizontal, with bounded vertical/depth
-      const sa = a + (rand() - 0.5) * 0.9
-      const dist = 1.8 + rand() * 2.6
+      // scatter target: spread ACROSS the viewport, not just outward from the
+      // bottle. The particle group moves to viewport center during explosion,
+      // so these are positions relative to that center.
       const scatter = new THREE.Vector3(
-        Math.cos(sa) * dist,
-        origin.y + (rand() - 0.5) * 2.2,
-        Math.sin(sa) * dist * 0.55 + (rand() - 0.5) * 0.7,
+        (rand() - 0.5) * 7.0,   // x: full desktop viewport width
+        (rand() - 0.5) * 3.6,   // y: most of viewport height
+        (rand() - 0.5) * 2.4,   // z: depth variation
       )
 
       list.push({
@@ -110,7 +110,8 @@ function Vial({
   const liquidMatRef = useRef<THREE.MeshPhysicalMaterial>(null!)
   const capRefs = useRef<THREE.MeshStandardMaterial[]>([])
   const { viewport } = useThree()
-  const isNarrow = viewport.width < 6
+  // Narrow = mobile + tablet (any orientation). Above 7 units → desktop.
+  const isNarrow = viewport.width < 7
 
   useFrame((state) => {
     if (!groupRef.current) return
@@ -118,8 +119,8 @@ function Vial({
     const e = explodeRef.current
     const t = state.clock.elapsedTime
 
-    // Mobile: bottle in TOP zone (positive Y world space), text owns the bottom half.
-    // Desktop: less right-offset than before for a more balanced layout.
+    // Narrow: bottle in TOP zone, text owns the bottom half.
+    // Desktop: bottle on the right with balanced offset.
     const baseX = isNarrow ? 0 : 1.7
     const baseY = isNarrow ? 0.9 : -0.9
 
@@ -257,7 +258,8 @@ function ParticleField({
 }) {
   const data = useParticles(count)
   const { viewport } = useThree()
-  const isNarrow = viewport.width < 6
+  // Narrow = mobile + tablet (portrait & landscape). Above 7 units → desktop.
+  const isNarrow = viewport.width < 7
 
   const idxA: number[] = [], idxB: number[] = []
   data.forEach((d, i) => (d.color === 0 ? idxA : idxB).push(i))
@@ -287,15 +289,18 @@ function ParticleField({
     if (matA.current) matA.current.opacity = alpha
     if (matB.current) matB.current.opacity = alpha
 
-    // Group transform: position + rotate the whole field, mobile-scaled to fit
+    // Group transform: starts at the bottle's position so particles emerge
+    // from it; interpolates to viewport CENTER as explosion completes so the
+    // molecules end up spread across the whole viewport, not just where the
+    // bottle was.
     if (groupRef.current) {
-      const baseX = isNarrow ? 0 : 2.4
-      const baseY = isNarrow ? 1.1 : -0.9
-      groupRef.current.position.set(
-        baseX - p * (isNarrow ? -0.1 : 1.2),
-        baseY - p * 0.4,
-        0,
-      )
+      const bottleX = isNarrow ? 0 : 1.7
+      const bottleY = isNarrow ? 0.9 : -0.9
+      // (1 - ee) keeps the field near the bottle when it's still mostly intact;
+      // ee=1 puts the field at world center.
+      const cx = bottleX * (1 - ee) - p * (isNarrow ? -0.1 : 1.2) * (1 - ee)
+      const cy = bottleY * (1 - ee) - p * 0.4
+      groupRef.current.position.set(cx, cy, 0)
       groupRef.current.rotation.y = Math.max(0, p - 0.35) * Math.PI * 1.4
       groupRef.current.scale.setScalar(isNarrow ? 0.55 : 1)
     }

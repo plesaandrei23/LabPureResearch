@@ -24,11 +24,11 @@ export default async function HomePage() {
           Desktop: classic centered hero with vial on the right. */}
       <section
         id="hero"
-        className="relative overflow-hidden min-h-[100vh] flex items-end sm:items-center pb-10 sm:pb-0"
+        className="relative overflow-hidden min-h-[100vh] flex items-end lg:items-center pb-10 lg:pb-0"
       >
-        <div className="relative max-w-7xl mx-auto pt-[48vh] sm:pt-32 pb-8 sm:pb-32 px-4 sm:px-6 lg:px-8 w-full">
-          {/* Text column: full width on mobile, left half on desktop (vial right) */}
-          <div className="max-w-full sm:max-w-xl">
+        <div className="relative max-w-7xl mx-auto pt-[48vh] lg:pt-32 pb-8 lg:pb-32 px-4 sm:px-6 lg:px-8 w-full">
+          {/* Text full-width on mobile/tablet, left half on desktop (vial right) */}
+          <div className="max-w-full lg:max-w-xl">
             <Reveal>
               <span
                 className="liquid-glass liquid-glass-pill inline-flex items-center gap-2 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6 font-[family-name:var(--font-roboto-mono)]"
@@ -40,7 +40,7 @@ export default async function HomePage() {
             </Reveal>
 
             <Reveal delay={0.05}>
-              <h1 className="text-[2.4rem] sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] font-[family-name:var(--font-exo)]">
+              <h1 className="text-[2.4rem] sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] font-[family-name:var(--font-exo)]">
                 Peptide de înaltă puritate
                 <span className="block text-gradient">pentru cercetare avansată.</span>
               </h1>
