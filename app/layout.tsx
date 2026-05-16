@@ -5,6 +5,7 @@ import { CartProvider } from '@/components/CartProvider'
 import { ThemeProvider, THEME_INIT_SCRIPT } from '@/components/ThemeProvider'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ScrollScene from '@/components/ScrollScene'
 
 const exo = Exo({
   subsets: ['latin', 'latin-ext'],
@@ -47,16 +48,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ro" className={`h-full ${exo.variable} ${robotoMono.variable}`}>
+    <html lang="ro" suppressHydrationWarning className={`h-full ${exo.variable} ${robotoMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="bg-background text-foreground antialiased flex flex-col min-h-full">
+      <body className="text-foreground antialiased flex flex-col min-h-full">
         <ThemeProvider>
+          {/* Persistent layers: page gradient (back) → 3D vial stage (mid) → content (front) */}
+          <div className="page-bg" aria-hidden />
+          <ScrollScene />
           <CartProvider>
             <Navbar />
-            <main className="flex-grow">{children}</main>
-            <Footer />
+            <div className="relative z-10 flex flex-col flex-grow">
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
           </CartProvider>
         </ThemeProvider>
       </body>

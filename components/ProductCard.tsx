@@ -39,7 +39,7 @@ export default function ProductCard({ product }: { product: Product }) {
     <motion.div
       whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-      className="group relative bg-[var(--surface)] border border-[var(--border)] rounded-[var(--radius)] p-4 flex flex-col overflow-hidden hover:border-[var(--accent)]/40 hover:shadow-[0_20px_60px_-20px_var(--accent-glow)] transition-[border-color,box-shadow] duration-300"
+      className="liquid-glass group relative p-4 flex flex-col overflow-hidden hover:border-[var(--accent)]/40 hover:shadow-[0_30px_70px_-25px_var(--accent-glow)] transition-[border-color,box-shadow] duration-300"
     >
       {/* glow ring on hover */}
       <div aria-hidden className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
