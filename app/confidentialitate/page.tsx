@@ -60,13 +60,13 @@ export default function ConfidentialitatePage() {
         <section>
           <h2 className="text-lg font-semibold text-neutral-900 mb-2">5. Cui transmitem datele</h2>
           <ul className="list-disc pl-6 space-y-1">
-            <li><strong>Supabase</strong> – hosting bază de date și autentificare (UE).</li>
-            <li><strong>Vercel</strong> – hosting site (UE/SUA, cu clauze contractuale standard).</li>
-            <li><strong>Resend</strong> – furnizor email tranzacțional.</li>
-            <li>Curieri – pentru livrarea coletelor.</li>
-            <li>Autorități publice – la solicitare legală.</li>
+            <li><strong>Supabase Inc.</strong> – hosting bază de date și autentificare. Regiune UE (Frankfurt). Operator independent: Supabase Inc., SUA, cu clauze contractuale standard (SCC).</li>
+            <li><strong>Vercel Inc.</strong> – hosting site, SUA, cu clauze contractuale standard (SCC) conform Deciziei UE 2021/914.</li>
+            <li><strong>Resend Inc.</strong> – furnizor email tranzacțional, SUA, cu clauze contractuale standard (SCC). Datele transferate: nume, adresă email, conținutul emailului tranzacțional (confirmare comandă, actualizări status).</li>
+            <li><strong>Curieri</strong> (Sameday, Fan Courier, sau alți parteneri logistici) – pentru livrarea coletelor.</li>
+            <li><strong>Autorități publice</strong> – doar la solicitare legală.</li>
           </ul>
-          <p className="mt-2">Nu vindem datele tale către terți.</p>
+          <p className="mt-2">Nu vindem datele tale către terți. Transferurile către SUA se fac în baza Cadrului UE-SUA pentru protecția datelor (EU-U.S. Data Privacy Framework) și/sau clauze contractuale standard aprobate de Comisia Europeană.</p>
         </section>
 
         <section>

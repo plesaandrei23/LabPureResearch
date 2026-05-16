@@ -7,7 +7,11 @@ export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url)
   const token_hash = searchParams.get('token_hash')
   const type = searchParams.get('type') as 'email' | 'recovery' | null
-  const next = searchParams.get('next') ?? '/contul-meu'
+  // Strict allow-list: must be a same-origin path (starts with /, NOT //).
+  // Prevents `?next=//evil.com` open redirect.
+  const rawNext = searchParams.get('next') ?? '/contul-meu'
+  const next =
+    rawNext.startsWith('/') && !rawNext.startsWith('//') ? rawNext : '/contul-meu'
 
   if (token_hash && type) {
     const cookieStore = await cookies()
