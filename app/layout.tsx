@@ -5,7 +5,7 @@ import { CartProvider } from '@/components/CartProvider'
 import { ThemeProvider, THEME_INIT_SCRIPT } from '@/components/ThemeProvider'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import ScrollScene from '@/components/ScrollScene'
+import PageChrome from '@/components/PageChrome'
 
 const exo = Exo({
   subsets: ['latin', 'latin-ext'],
@@ -52,11 +52,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
       </head>
-      <body className="text-foreground antialiased flex flex-col min-h-full">
+      <body className="bg-background text-foreground antialiased flex flex-col min-h-full">
         <ThemeProvider>
-          {/* Persistent layers: page gradient (back) → 3D vial stage (mid) → content (front) */}
-          <div className="page-bg" aria-hidden />
-          <ScrollScene />
+          {/* Chrome that's only present on the landing page: 3D vial stage +
+              soft pastel gradient. Other routes get the body's solid bg. */}
+          <PageChrome />
           <CartProvider>
             <Navbar />
             <div className="relative z-10 flex flex-col flex-grow">
