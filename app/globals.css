@@ -1,12 +1,168 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+ * Design tokens — PeptideResearch.ro · Modern Dark Cinema
+ * Source: ui-ux-pro-max-skill design-system output, synthesized for
+ * futuristic research-commerce with system+manual dark mode.
+ * -------------------------------------------------------------------------*/
+
 :root {
-  --background: #fafafa;
-  --foreground: #171717;
+  /* light defaults */
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --foreground: #0f172a;
+  --muted-fg: #64748b;
+  --border: rgba(15, 23, 42, 0.08);
+  --ring: rgba(8, 145, 178, 0.4);
+
+  --accent: #0891b2;       /* cyan-600 */
+  --accent-fg: #ffffff;
+  --accent-glow: rgba(8, 145, 178, 0.25);
+
+  --accent-2: #4f46e5;     /* indigo-600 */
+  --accent-2-glow: rgba(79, 70, 229, 0.25);
+
+  --destructive: #dc2626;
+  --warning: #b45309;
+  --success: #059669;
+
+  --radius: 14px;
+  --easing: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+}
+
+/* manual dark mode */
+[data-theme="dark"] {
+  --background: #0f172a;
+  --surface: #192134;
+  --surface-2: #131a2b;
+  --foreground: #f8fafc;
+  --muted-fg: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+  --ring: rgba(34, 211, 238, 0.45);
+
+  --accent: #22d3ee;       /* cyan-400 — brighter for dark bg */
+  --accent-fg: #0f172a;
+  --accent-glow: rgba(34, 211, 238, 0.28);
+
+  --accent-2: #818cf8;     /* indigo-400 */
+  --accent-2-glow: rgba(129, 140, 248, 0.28);
+
+  color-scheme: dark;
+}
+
+/* system follow when no manual choice */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --background: #0f172a;
+    --surface: #192134;
+    --surface-2: #131a2b;
+    --foreground: #f8fafc;
+    --muted-fg: #94a3b8;
+    --border: rgba(255, 255, 255, 0.08);
+    --ring: rgba(34, 211, 238, 0.45);
+    --accent: #22d3ee;
+    --accent-fg: #0f172a;
+    --accent-glow: rgba(34, 211, 238, 0.28);
+    --accent-2: #818cf8;
+    --accent-2-glow: rgba(129, 140, 248, 0.28);
+    color-scheme: dark;
+  }
+}
+
+/* Expose tokens as Tailwind v4 theme so utilities like bg-background work */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted-fg: var(--muted-fg);
+  --color-border-token: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-2: var(--accent-2);
+  --color-destructive: var(--destructive);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --font-display: "Exo", system-ui, sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: "Exo", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis-weight: none;
+}
+
+::selection {
+  background: var(--accent-glow);
+  color: var(--foreground);
+}
+
+/* ----- utilities ---------------------------------------------------------*/
+
+.glass {
+  background: color-mix(in oklab, var(--surface) 65%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid var(--border);
+}
+
+.glow-accent {
+  box-shadow:
+    0 0 0 1px var(--border),
+    0 10px 40px -10px var(--accent-glow);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ambient animated background blobs */
+.ambient-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  will-change: transform;
+}
+
+[data-theme="dark"] .ambient-blob,
+:root:not([data-theme="light"]) .ambient-blob {
+  opacity: 0.45;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(40px, -30px, 0) scale(1.1); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-50px, 40px, 0) scale(0.95); }
+}
+.ambient-blob.a { animation: drift-a 14s var(--easing) infinite; }
+.ambient-blob.b { animation: drift-b 18s var(--easing) infinite; }
+
+/* honor reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
