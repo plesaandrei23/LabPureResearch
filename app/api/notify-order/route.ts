@@ -3,7 +3,36 @@ import { Resend } from 'resend'
 import { createClient } from '@supabase/supabase-js'
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
-const FROM = process.env.EMAIL_FROM ?? 'PeptideResearch.ro <onboarding@resend.dev>'
+
+// Resend's `from` parser is strict: it accepts only `email@domain.tld` OR
+// `Name <email@domain.tld>` (RFC-5322 friendly). Vercel's env-var UI sometimes
+// mangles values (URL-encodes `<>`, HTML-escapes them, wraps in quotes, trims
+// the angle-bracket section, etc.). Sanitize on every request so a malformed
+// env value can't kill the email pipeline silently.
+function sanitizeFrom(raw: string | undefined): string {
+  const FALLBACK = 'onboarding@resend.dev'
+  if (!raw) return FALLBACK
+  let s = raw.trim()
+  // strip surrounding single/double quotes
+  s = s.replace(/^['"]|['"]$/g, '')
+  // decode HTML entities and URL-encoding for `<` and `>`
+  s = s
+    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&amp;/gi, '&')
+    .replace(/%3C/gi, '<').replace(/%3E/gi, '>')
+  const NAMED = /^[^<>@]+<\s*([^\s<>]+@[^\s<>]+\.[^\s<>]+)\s*>$/
+  const BARE  = /^[^\s<>@]+@[^\s<>]+\.[^\s<>]+$/
+  if (NAMED.test(s) || BARE.test(s)) return s
+  // Last-ditch: extract the email portion only and use that bare. Beats failing.
+  const m = s.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/)
+  if (m) {
+    console.warn(`[notify-order] EMAIL_FROM malformed (${JSON.stringify(raw)}), using bare extracted: ${m[0]}`)
+    return m[0]
+  }
+  console.error(`[notify-order] EMAIL_FROM unparseable (${JSON.stringify(raw)}), falling back to ${FALLBACK}`)
+  return FALLBACK
+}
+
+const FROM = sanitizeFrom(process.env.EMAIL_FROM)
 
 // ─── In-memory rate limit (per server instance) ──────────────────────────────
 // Production with multiple instances should use a shared store (Vercel KV,

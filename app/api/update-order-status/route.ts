@@ -5,7 +5,28 @@ import { cookies } from 'next/headers'
 import type { Database } from '@/lib/supabase'
 
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
-const FROM = process.env.EMAIL_FROM ?? 'PeptideResearch.ro <onboarding@resend.dev>'
+
+// Defensively normalise EMAIL_FROM (Vercel's UI can mangle angle brackets / quotes).
+function sanitizeFrom(raw: string | undefined): string {
+  const FALLBACK = 'onboarding@resend.dev'
+  if (!raw) return FALLBACK
+  let s = raw.trim().replace(/^['"]|['"]$/g, '')
+  s = s
+    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&amp;/gi, '&')
+    .replace(/%3C/gi, '<').replace(/%3E/gi, '>')
+  const NAMED = /^[^<>@]+<\s*([^\s<>]+@[^\s<>]+\.[^\s<>]+)\s*>$/
+  const BARE  = /^[^\s<>@]+@[^\s<>]+\.[^\s<>]+$/
+  if (NAMED.test(s) || BARE.test(s)) return s
+  const m = s.match(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/)
+  if (m) {
+    console.warn(`[update-order-status] EMAIL_FROM malformed, using bare: ${m[0]}`)
+    return m[0]
+  }
+  console.error(`[update-order-status] EMAIL_FROM unparseable, using ${FALLBACK}`)
+  return FALLBACK
+}
+
+const FROM = sanitizeFrom(process.env.EMAIL_FROM)
 
 const ALLOWED_STATUSES = new Set([
   'in_asteptare',
