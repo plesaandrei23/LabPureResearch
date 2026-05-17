@@ -48,7 +48,7 @@ export default async function HomePage() {
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-fg">
                 BPC-157, Semax, Selank, GHK-Cu, Retatrutida, Klow — fiecare lot
-                cu certificat de analiză, puritate verificată 99%+, livrare cu lanț rece.
+                cu certificat de analiză, puritate verificată 99%+, ambalaj steril.
               </p>
             </Reveal>
 
@@ -118,7 +118,7 @@ export default async function HomePage() {
                 </h2>
                 <p className="mt-5 text-muted-fg max-w-lg">
                   Fiecare flacon livrat cu certificat de analiză (CoA), puritate HPLC 99%+,
-                  ambalaj steril cu lanț rece.
+                  ambalaj steril.
                 </p>
               </div>
               <div className="lg:col-span-5 flex lg:justify-end items-end">

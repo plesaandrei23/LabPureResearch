@@ -84,7 +84,7 @@ export default function TermeniPage() {
           <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">7. Dreptul de retragere și retur</h2>
           <p className="mb-2">
             Produsele comercializate sunt reactivi de cercetare cu cerințe stricte de păstrare
-            (lanț rece, sigilare). Conform art. 16 din OUG 34/2014, dreptul de retragere nu se
+            (ambalaj steril, sigilare). Conform art. 16 din OUG 34/2014, dreptul de retragere nu se
             aplică produselor sigilate care, odată desigilate, nu pot fi returnate din motive de
             protecție a sănătății sau din motive de igienă.
           </p>
