@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 export default function Footer() {
@@ -12,8 +13,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <p className="text-lg font-semibold text-foreground font-[family-name:var(--font-exo)]">Peptide<span className="text-gradient">Research</span><span className="text-muted-fg">.ro</span></p>
-            <p className="mt-2 text-sm text-muted-fg">Produse de înaltă puritate, exclusiv pentru cercetare în laborator.</p>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
+                <Image src="/images/logo.png" alt="PeptideResearch.ro" width={44} height={44} className="object-contain" />
+              </span>
+              <p className="text-lg font-semibold text-foreground font-[family-name:var(--font-exo)]">
+                Peptide<span className="text-gradient">Research</span><span className="text-muted-fg">.ro</span>
+              </p>
+            </div>
+            <p className="text-sm text-muted-fg">Produse de înaltă puritate, exclusiv pentru cercetare în laborator.</p>
           </div>
           <div>
             <p className="text-xs font-semibold text-foreground uppercase tracking-[0.2em] mb-3 font-[family-name:var(--font-roboto-mono)]">Navigare</p>

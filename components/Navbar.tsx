@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useEffect, useState, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import { useCart } from './CartProvider'
@@ -35,10 +36,15 @@ export default function Navbar() {
         <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center px-2 py-1.5 gap-1">
           <Link
             href="/"
-            className="px-3 py-1.5 text-sm font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap"
+            className="pl-1.5 pr-3 py-0.5 flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap"
           >
-            Peptide<span className="text-gradient">Research</span>
-            <span className="text-muted-fg">.ro</span>
+            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
+              <Image src="/images/logo.png" alt="" width={32} height={32} className="object-contain" priority />
+            </span>
+            <span>
+              Peptide<span className="text-gradient">Research</span>
+              <span className="text-muted-fg">.ro</span>
+            </span>
           </Link>
 
           <span className="h-5 w-px bg-[var(--border)] mx-2" />
@@ -107,9 +113,14 @@ export default function Navbar() {
       {/* Mobile compact pill */}
       <nav className="md:hidden fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[min(96vw,520px)]">
         <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center pl-3 pr-2 py-1.5 gap-1.5">
-          <Link href="/" className="text-[13px] font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap">
-            Peptide<span className="text-gradient">Research</span>
-            <span className="text-muted-fg">.ro</span>
+          <Link href="/" className="flex items-center gap-2 text-[13px] font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap">
+            <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
+              <Image src="/images/logo.png" alt="" width={28} height={28} className="object-contain" priority />
+            </span>
+            <span>
+              Peptide<span className="text-gradient">Research</span>
+              <span className="text-muted-fg">.ro</span>
+            </span>
           </Link>
           <div className="flex-1" />
           <ThemeToggle />
