@@ -101,8 +101,8 @@ export default async function ProductPage({ params }: Props) {
             </p>
             <ul className="text-sm text-muted-fg space-y-2 pl-2">
               <li className="flex gap-2"><span className="text-[var(--accent)]">·</span> Peptidă liofilizată (doza indicată)</li>
-              <li className="flex gap-2"><span className="text-[var(--accent)]">·</span> Apă bacteriostatică</li>
-              <li className="flex gap-2"><span className="text-[var(--accent)]">·</span> Seringă de reconstituire</li>
+              <li className="flex gap-2"><span className="text-[var(--accent)]">·</span> Apă bacteriostatică 3ml</li>
+              <li className="flex gap-2"><span className="text-[var(--accent)]">·</span> Seringi de reconstituire</li>
             </ul>
           </div>
 
@@ -111,29 +111,6 @@ export default async function ProductPage({ params }: Props) {
           </div>
 
           <AddToCartButton product={product} />
-
-          <div className="mt-8 border-t border-[var(--border)] pt-6 space-y-3">
-            <div className="flex items-start gap-3 text-sm text-muted-fg">
-              <svg className="h-5 w-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-              </svg>
-              Livrare în 2–5 zile lucrătoare pe teritoriul României
-            </div>
-            <div className="flex items-start gap-3 text-sm text-muted-fg">
-              <svg className="h-5 w-5 text-[var(--accent)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              Certificate de analiză disponibile la cerere
-            </div>
-            <div className="liquid-glass flex items-start gap-3 text-sm p-4 mt-4">
-              <svg className="h-5 w-5 text-[var(--warning)] mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-              </svg>
-              <span className="text-[var(--warning)]">
-                <strong>Exclusiv pentru cercetare în laborator.</strong> Nu este destinat consumului uman.
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
