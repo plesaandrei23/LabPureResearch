@@ -34,7 +34,7 @@ insert into public.products (name, slug, short_desc, description, purity, price,
   'retatrutida-10mg',
   'Agonist triplu GIP/GLP-1/Glucagon, 10mg.',
   'Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Disponibil în flacon de 10mg, pulbere liofilizată. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.',
-  '≥98.5%',
+  '≥99%',
   220.00, 40, 'Peptide'
 ),
 (
@@ -42,7 +42,7 @@ insert into public.products (name, slug, short_desc, description, purity, price,
   'retatrutida-20mg',
   'Agonist triplu GIP/GLP-1/Glucagon, 20mg.',
   'Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Disponibil în flacon de 20mg, pulbere liofilizată. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.',
-  '≥98.5%',
+  '≥99%',
   390.00, 30, 'Peptide'
 ),
 (
@@ -58,7 +58,7 @@ insert into public.products (name, slug, short_desc, description, purity, price,
   'semax-10mg',
   'Peptidă neuroprotectivă ACTH(4-7)PGP, 10mg.',
   'Semax este un analog sintetic al fragmentului ACTH(4-7) cu extensie Pro-Gly-Pro. flacon de 10mg, pulbere liofilizată. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.',
-  '≥98.0%',
+  '≥99%',
   130.00, 45, 'Peptide'
 ),
 (
@@ -66,7 +66,7 @@ insert into public.products (name, slug, short_desc, description, purity, price,
   'selank-10mg',
   'Peptidă anxiolitică sintetică Thr-Lys-Pro-Arg-Pro-Gly-Pro, 10mg.',
   'Selank este un heptapeptid sintetic derivat din tuftsin. flacon de 10mg, pulbere liofilizată. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.',
-  '≥98.0%',
+  '≥99%',
   130.00, 45, 'Peptide'
 ),
 (

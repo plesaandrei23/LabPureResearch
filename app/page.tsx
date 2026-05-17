@@ -35,7 +35,7 @@ export default async function HomePage() {
                 style={{ color: 'var(--foreground)' }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] animate-pulse" />
-                HPLC ≥ 98% · Livrare în România
+                HPLC 99%+ · Livrare în România
               </span>
             </Reveal>
 
@@ -48,7 +48,7 @@ export default async function HomePage() {
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-fg">
                 BPC-157, Semax, Selank, GHK-Cu, Retatrutida, Klow — fiecare lot
-                cu certificat de analiză, puritate verificată ≥ 98%, livrare cu lanț rece.
+                cu certificat de analiză, puritate verificată 99%+, livrare cu lanț rece.
               </p>
             </Reveal>
 
@@ -74,7 +74,7 @@ export default async function HomePage() {
 
             <Reveal delay={0.25}>
               <dl className="liquid-glass liquid-glass-strong mt-16 grid grid-cols-2 sm:grid-cols-4 max-w-3xl overflow-hidden">
-                <Stat value="98%+" label="Puritate HPLC" />
+                <Stat value="99%+" label="Puritate HPLC" />
                 <Stat value="2-5z" label="Livrare RO" />
                 <Stat value="6+" label="Compuși disponibili" />
                 <Stat value="CoA" label="Per lot, la cerere" />
@@ -117,7 +117,7 @@ export default async function HomePage() {
                   <span className="text-gradient">compuse de cercetare.</span>
                 </h2>
                 <p className="mt-5 text-muted-fg max-w-lg">
-                  Fiecare flacon livrat cu certificat de analiză (CoA), puritate HPLC ≥ 98%,
+                  Fiecare flacon livrat cu certificat de analiză (CoA), puritate HPLC 99%+,
                   ambalaj steril cu lanț rece.
                 </p>
               </div>

@@ -58,11 +58,11 @@ UPDATE public.products SET description =
   WHERE slug = 'klow-80mg';
 
 UPDATE public.products SET description =
-  'Kit Complet Retatrutida 10mg conține: 1 flacon peptidă liofilizată Retatrutida 10mg (puritate ≥98.5%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
+  'Kit Complet Retatrutida 10mg conține: 1 flacon peptidă liofilizată Retatrutida 10mg (puritate ≥99%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
   WHERE slug = 'retatrutida-10mg';
 
 UPDATE public.products SET description =
-  'Kit Complet Retatrutida 20mg conține: 1 flacon peptidă liofilizată Retatrutida 20mg (puritate ≥98.5%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
+  'Kit Complet Retatrutida 20mg conține: 1 flacon peptidă liofilizată Retatrutida 20mg (puritate ≥99%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Retatrutida este un agonist triplu al receptorilor GIP, GLP-1 și Glucagon. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
   WHERE slug = 'retatrutida-20mg';
 
 UPDATE public.products SET description =
@@ -70,11 +70,11 @@ UPDATE public.products SET description =
   WHERE slug = 'ghk-cu-50mg';
 
 UPDATE public.products SET description =
-  'Kit Complet Semax 10mg conține: 1 flacon peptidă liofilizată Semax 10mg (puritate ≥98.0%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Semax este un analog sintetic al fragmentului ACTH(4-7) cu extensie Pro-Gly-Pro. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
+  'Kit Complet Semax 10mg conține: 1 flacon peptidă liofilizată Semax 10mg (puritate ≥99%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Semax este un analog sintetic al fragmentului ACTH(4-7) cu extensie Pro-Gly-Pro. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
   WHERE slug = 'semax-10mg';
 
 UPDATE public.products SET description =
-  'Kit Complet Selank 10mg conține: 1 flacon peptidă liofilizată Selank 10mg (puritate ≥98.0%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Selank este un heptapeptid sintetic derivat din tuftsin. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
+  'Kit Complet Selank 10mg conține: 1 flacon peptidă liofilizată Selank 10mg (puritate ≥99%), 1 flacon apă bacteriostatică 3ml și seringi de reconstituire. Selank este un heptapeptid sintetic derivat din tuftsin. Puritate verificată prin HPLC. Exclusiv pentru cercetare în laborator.'
   WHERE slug = 'selank-10mg';
 
 UPDATE public.products SET description =
