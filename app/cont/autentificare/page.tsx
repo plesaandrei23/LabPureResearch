@@ -38,51 +38,51 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-[60vh] flex items-center justify-center py-12 px-4">
+    <div className="min-h-[80vh] flex items-center justify-center pt-28 pb-12 px-4">
       <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <Link href="/" className="text-2xl font-semibold text-neutral-900">
-            Peptide<span className="text-blue-600">Research</span><span className="text-neutral-500">.ro</span>
+          <Link href="/" className="text-2xl font-semibold text-foreground">
+            Peptide<span className="text-[var(--accent)]">Research</span><span className="text-muted-fg">.ro</span>
           </Link>
-          <h1 className="mt-4 text-xl font-bold text-neutral-900">Autentificare</h1>
-          <p className="mt-1 text-sm text-neutral-500">
+          <h1 className="mt-4 text-xl font-bold text-foreground">Autentificare</h1>
+          <p className="mt-1 text-sm text-muted-fg">
             Nu ai cont?{' '}
-            <Link href="/cont/inregistrare" className="text-blue-600 hover:underline font-medium">
+            <Link href="/cont/inregistrare" className="text-[var(--accent)] hover:underline font-medium">
               Înregistrează-te
             </Link>
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white border border-neutral-200 rounded-lg p-8 shadow-sm space-y-4">
+        <form onSubmit={handleSubmit} className="liquid-glass p-8 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-foreground mb-1">Email</label>
             <input
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-[var(--border)] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
               placeholder="ion@exemplu.ro"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-neutral-700 mb-1">Parolă</label>
+            <label className="block text-sm font-medium text-foreground mb-1">Parolă</label>
             <input
               type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
               required
-              className="w-full rounded-md border border-neutral-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-md border border-[var(--border)] px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--ring)]"
               placeholder="••••••••"
             />
           </div>
 
-          {error && <p className="text-sm text-red-600 bg-red-50 rounded-md p-2">{error}</p>}
+          {error && <p className="text-sm text-[var(--destructive)] bg-[var(--destructive)]/10 rounded-md p-2">{error}</p>}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 rounded-md bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50"
+            className="w-full py-2.5 rounded-md bg-[var(--accent)] text-[var(--accent-fg)] text-sm font-semibold hover:brightness-110 transition-colors disabled:opacity-50"
           >
             {loading ? 'Se procesează...' : 'Autentifică-te'}
           </button>

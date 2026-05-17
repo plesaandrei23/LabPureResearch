@@ -106,9 +106,10 @@ export default function Navbar() {
 
       {/* Mobile compact pill */}
       <nav className="md:hidden fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[min(96vw,520px)]">
-        <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center px-3 py-2 gap-2">
-          <Link href="/" className="text-sm font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)]">
-            Peptide<span className="text-gradient">R</span>
+        <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center pl-3 pr-2 py-1.5 gap-1.5">
+          <Link href="/" className="text-[13px] font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap">
+            Peptide<span className="text-gradient">Research</span>
+            <span className="text-muted-fg">.ro</span>
           </Link>
           <div className="flex-1" />
           <ThemeToggle />
