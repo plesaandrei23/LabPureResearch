@@ -185,14 +185,22 @@ export default function CheckoutPage() {
       </h1>
 
       {!userId && (
-        <div className="liquid-glass mb-6 p-4 text-sm text-foreground flex justify-between items-center">
-          <span>
-            Poți finaliza comanda fără cont, sau te poți{' '}
-            <Link href="/cont/autentificare?redirect=/checkout" className="font-semibold text-[var(--accent)] hover:underline">
-              autentifica
-            </Link>
-            {' '}pentru a o salva în contul tău.
+        <div className="liquid-glass mb-6 p-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+          <span className="inline-flex items-center justify-center h-9 w-9 rounded-full bg-[var(--accent)]/15 border border-[var(--accent)]/30 text-[var(--accent)] flex-shrink-0">
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </span>
+          <p className="text-sm text-foreground flex-1">
+            <strong className="font-semibold">Comandă ca invitat.</strong>{' '}
+            <span className="text-muted-fg">Niciun cont necesar — completează doar formularul de mai jos.</span>
+          </p>
+          <Link
+            href="/cont/autentificare?redirect=/checkout"
+            className="text-sm text-[var(--accent)] hover:underline font-medium whitespace-nowrap"
+          >
+            Sau autentifică-te →
+          </Link>
         </div>
       )}
 

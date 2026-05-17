@@ -1,10 +1,18 @@
 'use client'
 
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { useCart } from '@/components/CartProvider'
+import { createClient } from '@/lib/supabase'
 
 export default function CosPage() {
   const { items, removeItem, updateQty, total } = useCart()
+  const [loggedIn, setLoggedIn] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    const supabase = createClient()
+    supabase.auth.getUser().then(({ data }) => setLoggedIn(!!data.user))
+  }, [])
 
   if (items.length === 0) {
     return (
@@ -117,8 +125,20 @@ export default function CosPage() {
             href="/checkout"
             className="block w-full text-center py-3 px-4 rounded-full bg-[var(--accent)] text-[var(--accent-fg)] text-sm font-semibold hover:brightness-110 transition-all glow-accent"
           >
-            Finalizează comanda
+            {loggedIn ? 'Finalizează comanda' : 'Continuă ca invitat'}
           </Link>
+          {loggedIn === false && (
+            <p className="mt-3 text-center text-xs text-muted-fg leading-relaxed">
+              Sau{' '}
+              <Link
+                href="/cont/autentificare?redirect=/checkout"
+                className="text-[var(--accent)] hover:underline font-medium"
+              >
+                autentifică-te
+              </Link>
+              {' '}pentru a-ți salva comanda în cont.
+            </p>
+          )}
         </div>
       </div>
     </div>
