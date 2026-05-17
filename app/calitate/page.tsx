@@ -33,13 +33,13 @@ export default function CalitatePage() {
         />
         <Card
           icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7l9-4 9 4" />}
-          title="Ambalaj & Transport"
-          desc="Comenzile sunt ambalate discret, cu elemente de răcire pentru menținerea stabilității pe durata transportului. Livrare prin curier în 2–5 zile lucrătoare."
+          title="Transport"
+          desc="Livrare prin curier în 2–5 zile lucrătoare. Produsele sunt ambalate cu grijă pentru a ajunge intacte la destinație."
         />
         <Card
           icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />}
-          title="Puritate HPLC ≥ 98%"
-          desc="Toate loturile sunt analizate prin cromatografie de înaltă performanță. Loturile cu puritate sub prag sunt respinse înainte de comercializare."
+          title="Ajutor la fiecare pas"
+          desc="Echipa PeptideResearch.ro este mereu la dispoziția ta. Te ajutăm cu orice întrebare legată de produse, comenzi si livrare. Nu ezita să ne contactezi!"
         />
       </div>
 

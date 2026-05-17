@@ -42,10 +42,9 @@ export default async function HomePage() {
             <Reveal delay={0.05}>
               <h1 className="text-[2.4rem] sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] font-[family-name:var(--font-exo)]">
                 Peptide de înaltă puritate
-                <span className="block text-gradient">pentru cercetare avansată.</span>
+                <span className="block text-gradient">For research purposes only.</span>
               </h1>
             </Reveal>
-
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-fg">
                 BPC-157, Semax, Selank, GHK-Cu, Retatrutida, Klow — fiecare lot
@@ -169,12 +168,12 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <Reveal>
             <div className="max-w-2xl mb-16">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)] mb-3 font-[family-name:var(--font-roboto-mono)]">
+              {/* <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)] mb-3 font-[family-name:var(--font-roboto-mono)]">
                 De ce noi
               </p>
               <h2 className="text-4xl sm:text-5xl font-bold tracking-tight font-[family-name:var(--font-exo)]">
                 Construit pentru cercetători.
-              </h2>
+              </h2> */}
             </div>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -186,14 +185,14 @@ export default async function HomePage() {
             />
             <Feature
               delay={0.08}
-              title="Lanț rece, ambalaj steril"
-              desc="Peptidele sunt livrate liofilizate, în flacoane sigilate, cu gheață uscată pentru stabilitate maximă."
+              title="Ambalaj steril"
+              desc="Produsele sunt livrate sub forma de pudra liofilizatǎ, în flacoane sterile din sticlǎ, sigilate sub presiune."
               icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />}
             />
             <Feature
               delay={0.16}
               title="Cont securizat & istoric"
-              desc="Plasează comenzi, urmărește statusul, reordonează cu un click. Email tranzacțional la fiecare pas."
+              desc="Plasează comenzi, urmărește statusul. Email tranzacțional la fiecare pas."
               icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />}
             />
           </div>
