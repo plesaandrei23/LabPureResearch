@@ -11,17 +11,26 @@ interface Props {
   shortId: string
 }
 
-const TRANSITIONS: Record<string, { label: string; next: string; color: string }[]> = {
+type Variant = 'accent' | 'accent2' | 'success' | 'destructive'
+
+const VARIANT_CLASS: Record<Variant, string> = {
+  accent:      'bg-[var(--accent)]      text-[var(--accent-fg)] hover:brightness-110 glow-accent',
+  accent2:     'bg-[var(--accent-2)]    text-white              hover:brightness-110',
+  success:     'bg-[var(--success)]     text-white              hover:brightness-110',
+  destructive: 'bg-[var(--destructive)] text-white              hover:brightness-110',
+}
+
+const TRANSITIONS: Record<string, { label: string; next: string; variant: Variant }[]> = {
   in_asteptare: [
-    { label: 'Confirmă', next: 'confirmata', color: 'bg-blue-600 hover:bg-blue-700' },
-    { label: 'Anulează', next: 'anulata', color: 'bg-red-600 hover:bg-red-700' },
+    { label: 'Confirmă',             next: 'confirmata', variant: 'accent' },
+    { label: 'Anulează',             next: 'anulata',    variant: 'destructive' },
   ],
   confirmata: [
-    { label: 'Marchează expediată', next: 'expediata', color: 'bg-purple-600 hover:bg-purple-700' },
-    { label: 'Anulează', next: 'anulata', color: 'bg-red-600 hover:bg-red-700' },
+    { label: 'Marchează expediată',  next: 'expediata',  variant: 'accent2' },
+    { label: 'Anulează',             next: 'anulata',    variant: 'destructive' },
   ],
   expediata: [
-    { label: 'Marchează livrată', next: 'livrata', color: 'bg-green-600 hover:bg-green-700' },
+    { label: 'Marchează livrată',    next: 'livrata',    variant: 'success' },
   ],
 }
 
@@ -51,18 +60,18 @@ export default function OrderActions({ orderId, currentStatus, customerEmail, cu
   }
 
   return (
-    <div className="flex flex-wrap gap-2 mt-3">
-      {actions.map(a => (
+    <div className="flex flex-wrap gap-2 mt-4 pt-3 border-t border-[var(--border)]">
+      {actions.map((a) => (
         <button
           key={a.next}
           onClick={() => update(a.next)}
           disabled={!!loading}
-          className={`px-4 py-1.5 rounded-md text-white text-xs font-semibold transition-colors disabled:opacity-50 ${a.color}`}
+          className={`flex-1 sm:flex-initial min-w-[120px] px-4 py-2 rounded-full text-xs font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed ${VARIANT_CLASS[a.variant]}`}
         >
-          {loading === a.next ? 'Se actualizează...' : a.label}
+          {loading === a.next ? 'Se actualizează…' : a.label}
         </button>
       ))}
-      {error && <p className="w-full text-xs text-red-600 mt-1">{error}</p>}
+      {error && <p className="w-full text-xs text-[var(--destructive)] mt-1">{error}</p>}
     </div>
   )
 }
