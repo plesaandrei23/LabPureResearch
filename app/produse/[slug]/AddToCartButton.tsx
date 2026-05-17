@@ -25,7 +25,7 @@ export default function AddToCartButton({ product }: { product: Product }) {
 
   if (product.stock === 0) {
     return (
-      <button disabled className="mt-6 w-full py-3 px-6 rounded-md bg-neutral-200 text-neutral-400 text-sm font-semibold cursor-not-allowed">
+      <button disabled className="liquid-glass mt-6 w-full py-3 px-6 text-sm font-semibold cursor-not-allowed text-muted-fg opacity-60">
         Stoc epuizat
       </button>
     )
@@ -34,15 +34,15 @@ export default function AddToCartButton({ product }: { product: Product }) {
   return (
     <button
       onClick={handleAdd}
-      className={`mt-6 w-full py-3 px-6 rounded-md text-sm font-semibold transition-all duration-200 ${
+      className={`mt-6 w-full py-3.5 px-6 rounded-full text-sm font-semibold transition-all duration-200 ${
         added
-          ? 'bg-green-500 text-white'
+          ? 'bg-[var(--success)] text-white'
           : inCart
-          ? 'bg-green-50 text-green-700 border border-green-300 hover:bg-green-100'
-          : 'bg-blue-600 text-white hover:bg-blue-700'
+          ? 'liquid-glass text-[var(--accent)] hover:brightness-105'
+          : 'bg-[var(--accent)] text-[var(--accent-fg)] hover:brightness-110 glow-accent'
       }`}
     >
-      {added ? '✓ Adăugat în coș!' : inCart ? 'Deja în coș – adaugă din nou' : 'Adaugă în coș'}
+      {added ? '✓ Adăugat în coș' : inCart ? 'Deja în coș — adaugă din nou' : 'Adaugă în coș'}
     </button>
   )
 }

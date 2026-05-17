@@ -9,26 +9,27 @@ const LAST_UPDATED = '16 mai 2026'
 
 export default function ConfidentialitatePage() {
   return (
-    <div className="max-w-3xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div className="max-w-3xl mx-auto pt-28 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="mb-10">
-        <h1 className="text-3xl font-extrabold text-neutral-900">Politica de confidențialitate</h1>
-        <p className="mt-2 text-sm text-neutral-500">Ultima actualizare: {LAST_UPDATED}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--accent)] mb-3 font-[family-name:var(--font-roboto-mono)]">Legal</p>
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground font-[family-name:var(--font-exo)]">Politica de confidențialitate</h1>
+        <p className="mt-3 text-sm text-muted-fg">Ultima actualizare: {LAST_UPDATED}</p>
       </div>
 
-      <div className="space-y-8 text-sm text-neutral-700 leading-relaxed">
+      <div className="space-y-8 text-sm text-muted-fg leading-relaxed">
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">1. Cine suntem</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">1. Cine suntem</h2>
           <p>
             PeptideResearch.ro („noi”, „Operatorul”) este operator de date cu caracter personal pentru
             informațiile colectate prin site-ul peptideresearch.ro. Ne poți contacta la{' '}
-            <a href="mailto:infopeptideresearch@gmail.com" className="text-blue-600 hover:underline">
+            <a href="mailto:infopeptideresearch@gmail.com" className="text-[var(--accent)] hover:underline">
               infopeptideresearch@gmail.com
             </a>.
           </p>
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">2. Ce date colectăm</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">2. Ce date colectăm</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>Date de cont: email, parolă (stocată criptografic prin Supabase Auth).</li>
             <li>Date de livrare: nume complet, telefon, adresă, oraș, județ, cod poștal.</li>
@@ -38,7 +39,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">3. Scopul prelucrării</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">3. Scopul prelucrării</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>Procesarea și livrarea comenzilor.</li>
             <li>Comunicare privind statusul comenzii (email tranzacțional).</li>
@@ -48,7 +49,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">4. Temeiul legal</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">4. Temeiul legal</h2>
           <p>Prelucrăm datele tale în baza articolului 6 din Regulamentul (UE) 2016/679 (GDPR):</p>
           <ul className="list-disc pl-6 mt-2 space-y-1">
             <li><strong>art. 6(1)(b)</strong> – executarea contractului de vânzare (comandă).</li>
@@ -58,7 +59,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">5. Cui transmitem datele</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">5. Cui transmitem datele</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li><strong>Supabase Inc.</strong> – hosting bază de date și autentificare. Regiune UE (Frankfurt). Operator independent: Supabase Inc., SUA, cu clauze contractuale standard (SCC).</li>
             <li><strong>Vercel Inc.</strong> – hosting site, SUA, cu clauze contractuale standard (SCC) conform Deciziei UE 2021/914.</li>
@@ -70,7 +71,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">6. Cât timp păstrăm datele</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">6. Cât timp păstrăm datele</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>Date de cont: pe durata existenței contului.</li>
             <li>Date privind comenzile: 10 ani (obligație fiscală – art. 25 alin. 1 Cod Fiscal).</li>
@@ -79,7 +80,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">7. Drepturile tale</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">7. Drepturile tale</h2>
           <p className="mb-2">Conform GDPR, ai dreptul:</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>de acces la datele tale;</li>
@@ -92,7 +93,7 @@ export default function ConfidentialitatePage() {
           </ul>
           <p className="mt-2">
             Pentru exercitarea acestor drepturi scrie-ne la{' '}
-            <a href="mailto:infopeptideresearch@gmail.com" className="text-blue-600 hover:underline">
+            <a href="mailto:infopeptideresearch@gmail.com" className="text-[var(--accent)] hover:underline">
               infopeptideresearch@gmail.com
             </a>.
             Vei primi un răspuns în maximum 30 de zile.
@@ -100,14 +101,14 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">8. Plângeri</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">8. Plângeri</h2>
           <p>
             Dacă apreciezi că drepturile tale au fost încălcate, te poți adresa{' '}
             <a
               href="https://www.dataprotection.ro"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-[var(--accent)] hover:underline"
             >
               Autorității Naționale de Supraveghere a Prelucrării Datelor cu Caracter Personal
               (ANSPDCP)
@@ -116,7 +117,7 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">9. Cookie-uri</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">9. Cookie-uri</h2>
           <p>
             Utilizăm cookie-uri strict necesare pentru funcționarea coșului de cumpărături și pentru
             autentificare. Nu folosim cookie-uri de marketing sau de profilare. Poți șterge oricând
@@ -125,15 +126,15 @@ export default function ConfidentialitatePage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-semibold text-neutral-900 mb-2">10. Modificări</h2>
+          <h2 className="text-lg font-semibold text-foreground mb-2 font-[family-name:var(--font-exo)]">10. Modificări</h2>
           <p>
             Această politică poate fi actualizată. Versiunea în vigoare este cea afișată pe această pagină,
             împreună cu data ultimei actualizări.
           </p>
         </section>
 
-        <div className="mt-10 bg-amber-50 border border-amber-200 rounded-lg p-4">
-          <p className="text-xs text-amber-800">
+        <div className="mt-10 liquid-glass p-4">
+          <p className="text-xs text-[var(--warning)]">
             <strong>Notă:</strong> acest document este un șablon orientativ și nu înlocuiește o
             consultanță juridică. Recomandăm validarea de către un avocat sau DPO înainte de
             publicare.
