@@ -36,11 +36,9 @@ export default function Navbar() {
         <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center px-2 py-1.5 gap-1">
           <Link
             href="/"
-            className="pl-1.5 pr-3 py-0.5 flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap"
+            className="pl-2 pr-3 py-0.5 flex items-center gap-2 text-sm font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap"
           >
-            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
-              <Image src="/images/logo.png" alt="" width={32} height={32} className="object-contain" priority />
-            </span>
+            <Image src="/images/logo.png" alt="" width={32} height={32} className="object-contain h-8 w-8" priority />
             <span>
               Peptide<span className="text-gradient">Research</span>
               <span className="text-muted-fg">.ro</span>
@@ -114,9 +112,7 @@ export default function Navbar() {
       <nav className="md:hidden fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[min(96vw,520px)]">
         <div className="liquid-glass liquid-glass-strong liquid-glass-pill flex items-center pl-3 pr-2 py-1.5 gap-1.5">
           <Link href="/" className="flex items-center gap-2 text-[13px] font-semibold tracking-tight text-foreground font-[family-name:var(--font-exo)] whitespace-nowrap">
-            <span className="relative inline-flex h-7 w-7 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
-              <Image src="/images/logo.png" alt="" width={28} height={28} className="object-contain" priority />
-            </span>
+            <Image src="/images/logo.png" alt="" width={28} height={28} className="object-contain h-7 w-7" priority />
             <span>
               Peptide<span className="text-gradient">Research</span>
               <span className="text-muted-fg">.ro</span>

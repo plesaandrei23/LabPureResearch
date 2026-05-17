@@ -14,9 +14,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <span className="relative inline-flex h-11 w-11 items-center justify-center rounded-full overflow-hidden bg-white shadow-[0_0_0_1px_var(--border)]">
-                <Image src="/images/logo.png" alt="PeptideResearch.ro" width={44} height={44} className="object-contain" />
-              </span>
+              <Image src="/images/logo.png" alt="PeptideResearch.ro" width={48} height={48} className="object-contain h-12 w-12" />
               <p className="text-lg font-semibold text-foreground font-[family-name:var(--font-exo)]">
                 Peptide<span className="text-gradient">Research</span><span className="text-muted-fg">.ro</span>
               </p>
